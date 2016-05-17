@@ -4,10 +4,9 @@ import depav.results.parser.model.Result;
 import depav.results.parser.model.InputData;
 import depav.results.parser.service.input.DummyData;
 import depav.results.parser.service.input.InputProvider;
-import depav.results.parser.service.printer.ConsolePrinter;
 import depav.results.parser.service.printer.PlainFilePrinter;
 import depav.results.parser.service.printer.Printer;
-import depav.results.parser.service.reader.CombinationValuesReader;
+import depav.results.parser.service.reader.ResultsReader;
 import depav.results.parser.service.reader.Reader;
 
 import java.io.IOException;
@@ -41,7 +40,7 @@ public class App {
     }
 
     private Reader<List<Result>> getReader(InputData inputData) {
-        return new CombinationValuesReader(inputData.getSourceFolder());
+        return new ResultsReader(inputData.getSourceFolder());
     }
 
     private Printer getPrinter(InputData inputData, List<Result> results) {

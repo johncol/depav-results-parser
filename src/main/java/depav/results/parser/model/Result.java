@@ -38,35 +38,35 @@ public final class Result {
         return ToStringBuilder.reflectionToString(this, ToStringStyle.JSON_STYLE);
     }
 
-    public static class CombinationValuesBuilder {
+    public static class ResultBuilder {
 
         private String epsilonT;
         private String epsilonZ;
         private String deflection;
         private String radius;
 
-        private CombinationValuesBuilder() {}
+        private ResultBuilder() {}
 
-        public static CombinationValuesBuilder aCombinationValues() {
-            return new CombinationValuesBuilder();
+        public static ResultBuilder aResult() {
+            return new ResultBuilder();
         }
 
-        public CombinationValuesBuilder withEpsilonT(String epsilonT) {
+        public ResultBuilder withEpsilonT(String epsilonT) {
             this.epsilonT = epsilonT;
             return this;
         }
 
-        public CombinationValuesBuilder withEpsilonZ(String epsilonZ) {
+        public ResultBuilder withEpsilonZ(String epsilonZ) {
             this.epsilonZ = epsilonZ;
             return this;
         }
 
-        public CombinationValuesBuilder withDeflection(String deflection) {
+        public ResultBuilder withDeflection(String deflection) {
             this.deflection = deflection;
             return this;
         }
 
-        public CombinationValuesBuilder withRadius(String radius) {
+        public ResultBuilder withRadius(String radius) {
             this.radius = radius;
             return this;
         }

@@ -1,7 +1,7 @@
 package depav.results.parser.service.reader.parser;
 
 import depav.results.parser.model.Result;
-import depav.results.parser.model.Result.CombinationValuesBuilder;
+import depav.results.parser.model.Result.ResultBuilder;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -17,7 +17,7 @@ public class DefaultParser implements Parser<Path, Result> {
     public Result parse(Path file) {
         try {
             List<String> lines = Files.lines(file).collect(Collectors.toList());
-            return CombinationValuesBuilder.aCombinationValues()
+            return ResultBuilder.aResult()
                     .withEpsilonT(getValue(lines, 22, 4))
                     .withEpsilonZ(getValue(lines, 30, 6))
                     .withDeflection(getValue(lines, 36, 3))
@@ -25,7 +25,7 @@ public class DefaultParser implements Parser<Path, Result> {
                     .build();
         } catch (IOException e) {
             e.printStackTrace();
-            return CombinationValuesBuilder.aCombinationValues().build();
+            return ResultBuilder.aResult().build();
         }
     }
 

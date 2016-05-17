@@ -12,7 +12,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class CombinationValuesReader implements Reader<List<Result>> {
+public class ResultsReader implements Reader<List<Result>> {
 
     private static final String POINT = ".";
     private static final String POINT_REGULAR = "\\.";
@@ -21,7 +21,7 @@ public class CombinationValuesReader implements Reader<List<Result>> {
 
     private final String folder;
 
-    public CombinationValuesReader(String folder) {
+    public ResultsReader(String folder) {
         this.folder = folder;
     }
 
