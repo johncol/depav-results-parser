@@ -13,6 +13,8 @@ import java.util.List;
 
 public class PlainFilePrinter implements Printer {
 
+    private Formatter formatter = new CVSFormatter();
+
     private final String output;
     private final List<? extends Result> results;
 
@@ -27,7 +29,6 @@ public class PlainFilePrinter implements Printer {
         if (!Files.exists(file)) {
             file = Files.createFile(file);
         }
-        Formatter formatter = new CVSFormatter();
         try (BufferedWriter writer = Files.newBufferedWriter(file)) {
             for (Result result : results) {
                 writer.write(formatter.format(result));

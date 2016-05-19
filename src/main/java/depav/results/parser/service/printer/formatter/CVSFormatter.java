@@ -5,7 +5,7 @@ import depav.results.parser.model.Result;
 public class CVSFormatter implements Formatter<Result> {
 
     enum Mode {
-        COMMA(','), SEMICOLON(';'), LINE('-'), SLASH('/'), STAR('*');
+        COMMA(','), SEMICOLON(';');
 
         final char character;
 

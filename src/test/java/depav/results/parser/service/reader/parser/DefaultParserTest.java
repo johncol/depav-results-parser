@@ -2,7 +2,8 @@ package depav.results.parser.service.reader.parser;
 
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.is;
-import static org.hamcrest.Matchers.notNullValue;
+import static org.hamcrest.Matchers.not;
+import static org.hamcrest.Matchers.nullValue;
 import static org.junit.Assert.assertThat;
 import static depav.results.parser.model.Result.ResultBuilder;
 
@@ -29,10 +30,10 @@ public class DefaultParserTest {
                 .withRadius("4.4M")
                 .build();
 
-        Path path = Paths.get("src/test/resources/results/test-results-file.txt");
+        Path path = Paths.get("src/test/resources/results/test-results-file-1.txt");
         Result result = parser.parse(path);
 
-        assertThat(result, is(notNullValue()));
+        assertThat(result, is(not(nullValue())));
         assertThat(result, is(equalTo(expectedResult)));
     }
 
