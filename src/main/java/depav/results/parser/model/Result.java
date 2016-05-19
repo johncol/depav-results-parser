@@ -1,5 +1,6 @@
 package depav.results.parser.model;
 
+import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
@@ -15,6 +16,28 @@ public final class Result {
         this.epsilonZ = epsilonZ;
         this.deflection = deflection;
         this.radius = radius;
+    }
+
+    @Override
+    public int hashCode() {
+        return epsilonT.hashCode() * 3
+                + epsilonZ.hashCode() * 5
+                + deflection.hashCode() * 7
+                + radius.hashCode() * 11;
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        if (object == null || !(object instanceof Result)) {
+            return false;
+        }
+        Result other = (Result) object;
+        return new EqualsBuilder()
+                .append(epsilonT, other.epsilonT)
+                .append(epsilonZ, other.epsilonZ)
+                .append(deflection, other.deflection)
+                .append(radius, other.radius)
+                .build();
     }
 
     public String getEpsilonT() {
